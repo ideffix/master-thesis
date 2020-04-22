@@ -11,3 +11,14 @@ code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
         monospace;
 }
+
+.todo-group {
+    padding: 39px;
+    background-color: #FFF7D1;
+}
+
+.todo-group-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 400px));
+    grid-gap: 1rem;
+}
