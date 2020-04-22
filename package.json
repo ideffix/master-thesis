@@ -1,0 +1,21 @@
+{
+    "name": "master-thesis",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "Bartosz Kopciuch",
+    "license": "ISC",
+    "devDependencies": {
+        "husky": "^4.2.5",
+        "prettier": "2.0.5",
+        "pretty-quick": "^2.0.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "pretty-quick --staged"
+        }
+    }
+}
