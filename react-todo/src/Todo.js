@@ -1,9 +1,12 @@
-import React from "react";
+import React from 'react'
 
-const Todo = ({name, done}) => (
+export const Todo = ({ name, done, onCheck }) => (
     <div>
-        <input type={"checkbox"} checked={done}/><span>{name}</span>
+        <input
+            type={'checkbox'}
+            checked={done}
+            onChange={(e) => onCheck(e.target.checked)}
+        />
+        <span className={done ? 'done' : ''}>{name}</span>
     </div>
 )
-
-export default Todo;

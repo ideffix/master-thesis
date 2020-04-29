@@ -13,7 +13,7 @@ code {
 }
 
 .todo-group {
-    padding: 39px;
+    padding: 26px 39px;
     background-color: #FFF7D1;
 }
 
@@ -21,4 +21,15 @@ code {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(240px, 400px));
     grid-gap: 1rem;
+}
+
+.btn {
+    padding: 5px;
+    background-color: burlywood;
+    display: block;
+}
+
+.done {
+    text-decoration: line-through;
+    color: lightgray;
 }

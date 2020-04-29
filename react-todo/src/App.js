@@ -1,7 +1,8 @@
-import React from 'react'
-import TodoGroup from "./TodoGroup";
+import React, { useState } from 'react'
+import { TodoGroup } from './TodoGroup'
+import { AddNewTodo } from './AddNewTodo'
 
-const groups = [
+const mock = [
     {
         name: 'Lista zakupów',
         todos: [
@@ -30,15 +31,38 @@ const groups = [
     },
 ]
 
-const App = () => (
-    <>
-        <h1>Do zrobienia</h1>
-        <div className={'todo-group-wrapper'}>
-        {groups.map((group) => (
-            <TodoGroup key={group.name} {...group} />
-        ))}
-        </div>
-    </>
-)
+const App = () => {
+    const [groups, setGroups] = useState(mock)
+    const onCheck = (groupIndex, todoIndex) => (done) =>
+        setGroups(
+            groups.map((group, i) =>
+                groupIndex === i
+                    ? {
+                          ...group,
+                          todos: group.todos.map((todo, j) =>
+                              todoIndex === j ? { ...todo, done } : todo
+                          ),
+                      }
+                    : group
+            )
+        )
+
+    return (
+        <>
+            <h1>Do zrobienia</h1>
+            <div className={'todo-group-wrapper'}>
+                {groups.map((group, i) => (
+                    <TodoGroup
+                        key={group.name}
+                        {...group}
+                        onCheck={onCheck}
+                        groupIndex={i}
+                    />
+                ))}
+                <AddNewTodo onAdd={(group) => setGroups([...groups, group])} />
+            </div>
+        </>
+    )
+}
 
 export default App
