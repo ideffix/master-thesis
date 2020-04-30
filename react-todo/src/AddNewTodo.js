@@ -21,7 +21,7 @@ export const AddNewTodo = ({ onAdd }) => {
         setName("");
     }
     return (
-        <div className={'todo-group'}>
+        <div className={'todo-group__body'}>
             <h3>Dodaj karteczkę!</h3>
             <input type={'text'} value={name} onChange={onNameChange} placeholder={"Nazwa"}/>
             {todos.map((todo, i) => (
@@ -36,7 +36,7 @@ export const AddNewTodo = ({ onAdd }) => {
             <input
                 className={'btn'}
                 type={'button'}
-                value={'Dodaj nową rzecz'}
+                value={'Dodaj nową rzecz!'}
                 onClick={onNewTodoAdd}
             />
             <input

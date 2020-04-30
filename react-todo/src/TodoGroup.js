@@ -16,30 +16,35 @@ export const TodoGroup = ({
         setNewTodo('')
     }
     return (
-        <div className={'todo-group'}>
-            <h3>{name}</h3>
-            <input type={'button'} value={'Usuń'} onClick={onRemove} />
-            {todos.map((todo, i) => (
-                <Todo
-                    key={todo.name}
-                    {...todo}
-                    onCheck={onCheck(groupIndex, i)}
-                    onRemove={onTodoRemove(groupIndex, i)}
-                    groupIndex={groupIndex}
-                    todoIndex={i}
+        <div>
+            <div className={'todo-group__header'}>
+                <span className={'pointer'} onClick={onRemove}>X</span>
+            </div>
+            <div className={'todo-group__body'}>
+                <h3>{name}</h3>
+                {todos.map((todo, i) => (
+                    <Todo
+                        key={todo.name}
+                        {...todo}
+                        onCheck={onCheck(groupIndex, i)}
+                        onRemove={onTodoRemove(groupIndex, i)}
+                        groupIndex={groupIndex}
+                        todoIndex={i}
+                    />
+                ))}
+                <input
+                    type={'text'}
+                    placeholder={'Nowa rzecz'}
+                    value={newTodo}
+                    onChange={(e) => setNewTodo(e.target.value)}
                 />
-            ))}
-            <input
-                type={'text'}
-                placeholder={'Nowa rzecz'}
-                value={newTodo}
-                onChange={(e) => setNewTodo(e.target.value)}
-            />
-            <input
-                type={'button'}
-                value={'Dodaj nową rzecz!'}
-                onClick={onNewTodoAdd}
-            />
+                <input
+                    className={'btn'}
+                    type={'button'}
+                    value={'Dodaj nową rzecz!'}
+                    onClick={onNewTodoAdd}
+                />
+            </div>
         </div>
     )
 }

@@ -12,9 +12,13 @@ code {
         monospace;
 }
 
-.todo-group {
+.todo-group__body {
     padding: 26px 39px;
     background-color: #FFF7D1;
+}
+
+.todo-group__body > h3 {
+    margin-top: 0;
 }
 
 .todo-group-wrapper {
@@ -27,9 +31,30 @@ code {
     padding: 5px;
     background-color: burlywood;
     display: block;
+    border: 1px solid black;
+    border-radius: 8px;
+    margin-top: 5px
 }
 
 .done {
     text-decoration: line-through;
     color: lightgray;
 }
+
+.todo-group__header {
+    background-color: #FFF2AB;
+    color: #7B7552;
+    text-align: right;
+    padding: 5px;
+}
+
+.pointer:hover {
+    cursor: pointer;
+}
+.remove {
+    background-color: deeppink;
+    border: 0;
+    border-radius: 10px;
+    margin-left: 7px;
+}
+
