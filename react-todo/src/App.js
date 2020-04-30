@@ -46,7 +46,38 @@ const App = () => {
                     : group
             )
         )
-
+    const onTodoRemove = (groupIndex, todoIndex) => () =>
+        setGroups(
+            groups.map((group, i) =>
+                groupIndex === i
+                    ? {
+                          ...group,
+                          todos: group.todos.filter(
+                              (todo, j) => todoIndex !== j
+                          ),
+                      }
+                    : group
+            )
+        )
+    const onTodoAdd = (groupIndex) => (todo) =>
+        setGroups(
+            groups.map((group, i) =>
+                groupIndex === i
+                    ? {
+                          ...group,
+                          todos: [
+                              ...group.todos,
+                              {
+                                  name: todo,
+                                  done: false,
+                              },
+                          ],
+                      }
+                    : group
+            )
+        )
+    const onRemove = (groupIndex) => () =>
+        setGroups(groups.filter((_, i) => groupIndex !== i))
     return (
         <>
             <h1>Do zrobienia</h1>
@@ -56,6 +87,9 @@ const App = () => {
                         key={group.name}
                         {...group}
                         onCheck={onCheck}
+                        onTodoRemove={onTodoRemove}
+                        onRemove={onRemove(i)}
+                        onTodoAdd={onTodoAdd(i)}
                         groupIndex={i}
                     />
                 ))}

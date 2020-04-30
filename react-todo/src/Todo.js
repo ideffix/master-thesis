@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const Todo = ({ name, done, onCheck }) => (
+export const Todo = ({ name, done, onCheck, onRemove }) => (
     <div>
         <input
             type={'checkbox'}
@@ -8,5 +8,6 @@ export const Todo = ({ name, done, onCheck }) => (
             onChange={(e) => onCheck(e.target.checked)}
         />
         <span className={done ? 'done' : ''}>{name}</span>
+        <input type={'button'} value={'x'} onClick={onRemove}/>
     </div>
 )
