@@ -24,14 +24,14 @@ const mock = [
                 done: true,
             },
             {
-                name: 'CS:GO',
+                name: 'Sprzątanie',
                 done: false,
             },
         ],
     },
 ]
 
-const App = () => {
+export const App = () => {
     const [groups, setGroups] = useState(mock)
     const onCheck = (groupIndex, todoIndex) => (done) =>
         setGroups(
@@ -98,5 +98,3 @@ const App = () => {
         </>
     )
 }
-
-export default App
