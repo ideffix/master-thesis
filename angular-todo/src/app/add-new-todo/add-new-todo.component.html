@@ -1,0 +1,17 @@
+<div class="todo-group__body">
+    <h3>Dodaj karteczkę!</h3>
+    <input type="text" placeholder="Nazwa" [(ngModel)]="group.name" />
+    <input
+        *ngFor="let todo of group.todos"
+        type="text"
+        placeholder="Do zrobienia!"
+        [(ngModel)]="todo.name"
+    />
+    <input
+        class="btn"
+        type="button"
+        value="Dodaj nową rzecz!"
+        (click)="addTodo()"
+    />
+    <input class="btn" type="button" value="Dodaj!" (click)="addGroup()" />
+</div>

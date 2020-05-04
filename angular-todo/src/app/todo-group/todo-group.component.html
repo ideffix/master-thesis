@@ -1,0 +1,20 @@
+<div>
+    <div class="todo-group__header">
+        <span class="pointer" (click)="removeGroup()">X</span>
+    </div>
+    <div class="todo-group__body">
+        <h3>{{ group.name }}</h3>
+        <todo
+            *ngFor="let todo of group.todos"
+            [todo]="todo"
+            (onRemove)="removeTodo($event)"
+        ></todo>
+        <input type="text" placeholder="Nowa rzecz" [(ngModel)]="newTodo" />
+        <input
+            class="btn"
+            type="button"
+            value="Dodaj nową rzecz!"
+            (click)="addNewTodo()"
+        />
+    </div>
+</div>

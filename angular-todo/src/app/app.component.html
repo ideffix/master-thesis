@@ -1,0 +1,9 @@
+<h1>Do zrobienia</h1>
+<div class="todo-group-wrapper">
+    <todo-group
+        *ngFor="let group of groups"
+        [group]="group"
+        (onGroupRemove)="removeGroup($event)"
+    ></todo-group>
+    <add-new-todo (onGroupAdd)="addGroup($event)"></add-new-todo>
+</div>
