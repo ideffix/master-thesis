@@ -2,8 +2,15 @@
     <div>
         <h1>Do zrobienia</h1>
         <div class="todo-group-wrapper">
-            <TodoGroup v-for="group in groups" :group="group" :key="group.name"/>
-            <AddNewTodo />
+            <TodoGroup
+                v-for="group in groups"
+                :group="group"
+                :key="group.name"
+                @on-new-todo-add="addNewTodo"
+                @on-todo-change="changeTodo"
+                @on-todo-remove="removeTodo"
+            />
+            <AddNewTodo @on-group-add="addGroup" />
         </div>
     </div>
 </template>
@@ -44,5 +51,34 @@ export default {
             },
         ],
     }),
+    methods: {
+        addGroup: function (group) {
+            this.groups.push(group)
+        },
+        addNewTodo: function (group, todo) {
+            this.groups = this.groups.map((gr) =>
+                gr === group ? { ...gr, todos: [...gr.todos, todo] } : gr
+            )
+        },
+        changeTodo: function (group, todo, done) {
+            this.groups = this.groups.map((gr) =>
+                gr === group
+                    ? {
+                          ...gr,
+                          todos: gr.todos.map((td) =>
+                              td === todo ? { ...td, done } : td
+                          ),
+                      }
+                    : gr
+            )
+        },
+        removeTodo: function (group, todo) {
+            this.groups = this.groups.map((gr) =>
+                gr === group
+                    ? { ...gr, todos: gr.todos.filter((td) => td !== todo) }
+                    : gr
+            )
+        },
+    },
 }
 </script>
