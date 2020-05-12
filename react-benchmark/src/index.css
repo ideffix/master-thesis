@@ -16,3 +16,7 @@ code {
     display: grid;
     grid-template-columns: repeat(auto-fit, 40px);
 }
+
+.highlight {
+    border: 1px solid black;
+}
