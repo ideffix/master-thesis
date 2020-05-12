@@ -8,6 +8,7 @@ const ITERATIONS = 10;
 const main = async () => {
     let driver = await new Builder().forBrowser('chrome').build()
     await benchmarkApp(driver, 'react', 'http://localhost:3000')
+    await benchmarkApp(driver, 'vue', 'http://localhost:8080')
 }
 
 const benchmarkApp = async (driver, label, address) => {
