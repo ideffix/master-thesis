@@ -3,34 +3,34 @@
     id="create"
     type="button"
     (click)="onCreateClick()"
-    value="Create 10.000 components"
+    value="Stwórz 10.000 komponentów"
   />
   <input
     id="update"
     type="button"
     (click)="onUpdateClick()"
-    value="Update 10.000 components"
+    value="Zaktualizuj 10.000 komponentów"
   />
   <input
     id="update10th"
     type="button"
     (click)="onUpdate10thClick()"
-    value="Update every 10th component"
+    value="Zaktualizuj co dziesiąty komponent"
   />
   <input
     id="swap"
     type="button"
     (click)="onSwapClick()"
-    value="Swap 2 components"
+    value="Zamień 2 komponenty"
   />
   <input
     id="clear"
     type="button"
     (click)="onClearClick()"
-    value="Clear components"
+    value="Wyczyść komponenty"
   />
 </div>
 <div class="wrapper">
   <benchmark-item *ngFor="let s of state" [obj]="s"></benchmark-item>
-  <div *ngIf="state.length === 0" id="empty">empty</div>
+  <div *ngIf="state.length === 0" id="empty">Pusty</div>
 </div>

@@ -41,38 +41,38 @@ const App = () => {
                     id={'create'}
                     type={'button'}
                     onClick={onCreateClick}
-                    value={'Create 10.000 components'}
+                    value={'Stwórz 10.000 komponentów'}
                 />
                 <input
                     id={'update'}
                     type={'button'}
                     onClick={onUpdateClick}
-                    value={'Update 10.000 components'}
+                    value={'Zaktualizuj 10.000 komponentów'}
                 />
                 <input
                     id={'update10th'}
                     type={'button'}
                     onClick={onUpdate10thClick}
-                    value={'Update every 10th component'}
+                    value={'Zaktualizuj co dziesiąty komponent'}
                 />
                 <input
                     id={'swap'}
                     type={'button'}
                     onClick={onSwapClick}
-                    value={'Swap 2 components'}
+                    value={'Zamień 2 komponenty'}
                 />
                 <input
                     id={'clear'}
                     type={'button'}
                     onClick={onClearClick}
-                    value={'Clear components'}
+                    value={'Wyczyść komponenty'}
                 />
             </div>
             <div className={'wrapper'}>
                 {state.map((s) => (
                     <BenchmarkItem obj={s} key={s.id} />
                 ))}
-                {state.length === 0 && <div id={'empty'}>empty</div>}
+                {state.length === 0 && <div id={'empty'}>Pusty</div>}
             </div>
         </>
     )
