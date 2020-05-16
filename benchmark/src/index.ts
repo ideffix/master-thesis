@@ -33,6 +33,8 @@ const createBenchmark = async (driver, address) => {
         await driver.findElement(By.id('9999'))
         const stop = Date.now()
         times.push(stop - start)
+        await driver.findElement(By.id('clear')).click()
+        await driver.findElement(By.id('empty'))
     }
     return calculateStats(times)
 }
@@ -79,21 +81,24 @@ const emphasizeBenchmark = async (driver, address) => {
         const stop = Date.now()
         times.push(stop - start)
         await driver.findElement(By.id('clear')).click()
+        await driver.findElement(By.id('empty'))
     }
     return calculateStats(times)
 }
 
 const swapBenchmark = async (driver, address) => {
     await driver.get(address);
-    await driver.findElement(By.id('create')).click()
-    await driver.findElement(By.id('9999'));
     const times = [];
     for (let i = 0; i < ITERATIONS; i++) {
+        await driver.findElement(By.id('create')).click()
+        await driver.findElement(By.id('9999'));
         const start = Date.now()
         await driver.findElement(By.id('swap')).click()
         await driver.findElement(By.id('9997'))
         const stop = Date.now()
         times.push(stop - start)
+        await driver.findElement(By.id('clear')).click()
+        await driver.findElement(By.id('empty'))
     }
     return calculateStats(times)
 }
