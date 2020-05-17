@@ -18,7 +18,9 @@ export const TodoGroup = ({
     return (
         <div>
             <div className={'todo-group__header'}>
-                <span className={'pointer'} onClick={onRemove}>X</span>
+                <span className={'pointer'} onClick={onRemove}>
+                    X
+                </span>
             </div>
             <div className={'todo-group__body'}>
                 <h3>{name}</h3>

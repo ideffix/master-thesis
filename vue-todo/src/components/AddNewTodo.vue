@@ -15,7 +15,7 @@
             value="Dodaj nową rzecz!"
             @click="addNewTodo"
         />
-        <input class="btn" type="button" value="Dodaj!" @click="addGroup"/>
+        <input class="btn" type="button" value="Dodaj!" @click="addGroup" />
     </div>
 </template>
 
@@ -32,16 +32,16 @@ export default {
         addNewTodo: function () {
             this.group.todos.push({ name: '', done: false })
         },
-        addGroup: function() {
+        addGroup: function () {
             this.$emit('on-group-add', this.group)
             this.group = {
                 name: '',
-                todos: []
+                todos: [],
             }
-        }
+        },
     },
     props: {
-        onGroupAdd: Function
-    }
+        onGroupAdd: Function,
+    },
 }
 </script>

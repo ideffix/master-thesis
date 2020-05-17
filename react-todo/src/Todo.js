@@ -8,6 +8,11 @@ export const Todo = ({ name, done, onCheck, onRemove }) => (
             onChange={(e) => onCheck(e.target.checked)}
         />
         <span className={done ? 'done' : ''}>{name}</span>
-        <input className={'remove'} type={'button'} value={'x'} onClick={onRemove}/>
+        <input
+            className={'remove'}
+            type={'button'}
+            value={'x'}
+            onClick={onRemove}
+        />
     </div>
 )

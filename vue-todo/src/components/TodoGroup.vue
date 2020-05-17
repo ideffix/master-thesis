@@ -46,12 +46,12 @@ export default {
             this.$emit('on-new-todo-add', this.group, this.newTodo)
             this.newTodo = { name: '', done: false }
         },
-        changeTodo: function(todo, done) {
+        changeTodo: function (todo, done) {
             this.$emit('on-todo-change', this.group, todo, done)
         },
-        removeTodo: function(todo) {
+        removeTodo: function (todo) {
             this.$emit('on-todo-remove', this.group, todo)
-        }
+        },
     },
 }
 </script>

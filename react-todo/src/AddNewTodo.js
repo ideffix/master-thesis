@@ -12,24 +12,29 @@ export const AddNewTodo = ({ onAdd }) => {
     const onGroupAdd = () => {
         onAdd({
             name,
-            todos: todos.map(todo => ({
+            todos: todos.map((todo) => ({
                 name: todo,
-                done: false
-            }))
-        });
-        setTodos([]);
-        setName("");
+                done: false,
+            })),
+        })
+        setTodos([])
+        setName('')
     }
     return (
         <div className={'todo-group__body'}>
             <h3>Dodaj karteczkę!</h3>
-            <input type={'text'} value={name} onChange={onNameChange} placeholder={"Nazwa"}/>
+            <input
+                type={'text'}
+                value={name}
+                onChange={onNameChange}
+                placeholder={'Nazwa'}
+            />
             {todos.map((todo, i) => (
                 <input
                     key={i}
                     type={'text'}
                     value={todos[i]}
-                    placeholder={"Do zrobienia!"}
+                    placeholder={'Do zrobienia!'}
                     onChange={onTodoChange(i)}
                 />
             ))}
